@@ -6,9 +6,18 @@ It reads the accelerometer built into Apple Silicon MacBooks, so it needs no Air
 
 > macOS 26 and later include Apple's own Vehicle Motion Cues (System Settings > Accessibility > Motion). Use that if you can. This app is for Macs still on macOS 13–15.
 
-## Install
+## Download
 
-Needs an Apple Silicon MacBook and the Xcode command line tools (`xcode-select --install`).
+**[Download VehicleMotionCues.dmg](https://github.com/rsktaker/vehicle-motion-cues-mac/releases/latest/download/VehicleMotionCues.dmg)** (Apple Silicon MacBooks, macOS 13 or later)
+
+1. Open the disk image and drag **Vehicle Motion Cues** into **Applications**.
+2. Open it from Applications. A car icon appears in the menu bar. No permissions are requested.
+
+The app is signed with a Developer ID but is not notarized by Apple yet, so the first time you open it macOS says it could not verify the app. To allow it, open **System Settings > Privacy & Security**, scroll down, and click **Open Anyway**. You only do this once.
+
+## Build from source
+
+Needs the Xcode command line tools (`xcode-select --install`).
 
 ```sh
 git clone https://github.com/rsktaker/vehicle-motion-cues-mac.git
@@ -17,7 +26,7 @@ cd vehicle-motion-cues-mac
 open "Vehicle Motion Cues.app"
 ```
 
-A car icon appears in the menu bar. No permissions are requested.
+`./make-dmg.sh` packs the disk image; the comments at the top of that script cover signing and notarizing.
 
 ## Use
 

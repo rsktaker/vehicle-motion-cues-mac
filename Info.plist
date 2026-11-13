@@ -3,6 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>CFBundleExecutable</key><string>VehicleMotionCues</string>
+  <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundleIdentifier</key><string>local.vehicle-motion-cues</string>
   <key>CFBundleName</key><string>Vehicle Motion Cues</string>
   <key>CFBundlePackageType</key><string>APPL</string>

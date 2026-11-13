@@ -250,7 +250,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSWind
     private var shown = false
 
     func applicationDidFinishLaunching(_ note: Notification) {
+        // New menu bar items go to the far left, where a MacBook's notch or the front app's menus
+        // can hide them. Unless the user has dragged the icon somewhere, start it near the right.
+        let positionKey = "NSStatusItem Preferred Position VehicleMotionCues"
+        if defaults.object(forKey: positionKey) == nil { defaults.set(190.0, forKey: positionKey) }
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusItem.autosaveName = "VehicleMotionCues"
         // Click = dots on/off. Right-click (or Control/Option-click) = options menu.
         statusItem.button?.target = self
         statusItem.button?.action = #selector(iconClicked)
@@ -432,7 +437,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSWind
         } else {
             button.title = shown ? "●" : "○"
         }
-        button.appearsDisabled = !shown        // dimmed outline when the dots are off
         button.toolTip = "Vehicle Motion Cues: \(shown ? "on" : "off"). Click to switch, right-click for options."
     }
 
